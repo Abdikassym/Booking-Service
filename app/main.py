@@ -1,15 +1,32 @@
 from fastapi import FastAPI, Query, Depends
 from typing import Optional
-from datetime import date
+from datetime import date, datetime, timedelta
+import jwt
 from pydantic import BaseModel
+from sqlalchemy import select
 
 from app.bookings.router import router as router_bookings
+from app.users.auth import authenticate_user, create_access_token
+from app.users.models import Users
+from app.users.router import router as router_users
+
+from app.database import async_session_maker
+from app.dao.base import BaseDAO
+
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 
 app = FastAPI(
     title="Something"
 )
 
+
+app.include_router(router_users)
 app.include_router(router_bookings)
+
 
 hotels = [
         {
