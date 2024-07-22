@@ -47,3 +47,9 @@ UserIsNotAdminHiddenException = HTTPException(
     status_code=status.HTTP_401_UNAUTHORIZED,
     detail="Неизвестная ошибка.",
 )
+
+
+RoomCannotBeBookedException = HTTPException(
+    status_code=status.HTTP_409_CONFLICT,
+    detail="Не осталось свободных номеров."
+)
