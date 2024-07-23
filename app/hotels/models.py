@@ -9,4 +9,4 @@ class Hotels(Base):
     location = Column(String, nullable=False)
     services = Column(JSON)
     rooms_quantity = Column(Integer, nullable=False)
-    image_id = Column(Integer)
+    image_id = Column(Integer, nullable=True)

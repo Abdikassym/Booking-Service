@@ -6,7 +6,7 @@ from app.database import engine, async_session_maker
 from app.rooms.models import Rooms
 
 
-class BookingDAO(BaseDAO):
+class BookingsDAO(BaseDAO):
 
     model = Bookings
 
@@ -38,7 +38,7 @@ class BookingDAO(BaseDAO):
             get_rooms_left = select(
                 (Rooms.quantity - func.count(booked_rooms.c.room_id)).label("rooms_left")).select_from(Rooms).join(
                     booked_rooms, booked_rooms.c.room_id == Rooms.id, isouter=True
-                ).where(room_id == 1).group_by(
+                ).where(room_id == room_id).group_by(
                     Rooms.quantity, booked_rooms.c.room_id
                 )
 
