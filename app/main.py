@@ -9,9 +9,25 @@ from app.rooms.router import router as router_rooms
 from app.pages.router import router as router_pages
 from app.images.router import router as router_images
 
+from fastapi_cache import FastAPICache
+from fastapi_cache.backends.redis import RedisBackend
+from fastapi_cache.decorator import cache
+
+from redis import asyncio as aioredis
+
+from collections.abc import AsyncIterator
+from contextlib import asynccontextmanager
+
+
+@asynccontextmanager
+async def lifespan(_: FastAPI) -> AsyncIterator[None]:
+    redis = aioredis.from_url("redis://localhost")
+    FastAPICache.init(RedisBackend(redis), prefix="fastapi-cache")
+    yield
 
 app = FastAPI(
-    title="Something"
+    title="Something",
+    lifespan=lifespan
 )
 
 app.mount("/static", StaticFiles(directory="app/static"), "static")
@@ -34,3 +50,4 @@ app.add_middleware(
     allow_methods=["GET", "POST", "OPTINONS", "DELETE", "PATCH", "PUT"],
     allow_headers=["Content-Type", "Set-cookie", "Access-Control-Allow-Headers", "Authorization", "Access-Control-Allow-Origin"]
 )
+

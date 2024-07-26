@@ -67,13 +67,12 @@ class HotelsDAO(BaseDAO):
 
             # Извлекаем данные из booking_result
             booking_counts = {}
-            for booking in booking_result:
-                room_id = booking["room_id"]
+            for room_id in booking_result:
                 if room_id in booking_counts:
                     booking_counts[room_id] += 1
                 else:
                     booking_counts[room_id] = 1
-
+                    
             # Фильтруем отели с доступными комнатами
             allowed_hotels = set()
             for room in all_rooms:
