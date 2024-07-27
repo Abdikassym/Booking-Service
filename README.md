@@ -1,26 +1,26 @@
-# Booking Service (В разработке)
+# Booking Service (In development)
 
-Сервис для онлайн-бронирования отелей, позволяющий пользователям находить и резервировать номера в удобном формате
+Online hotel booking service that allows users to find and book rooms in a convenient format
 
-## Используемые технологии
+## Technologies used
 
-- **FastAPI**: Серверная часть приложения.
-- **SQLAlchemy**: ORM для более эффективного создания SQL-запросов.
-- **PostgreSQL**: База данных для хранения информации о пользователях и отелях.
-- **Redis**: Кэширование данных.
-- **Pydantic**: Библиотека для валидации данных.
-- **HTML**: Структура веб-страниц.
-- **CSS**: Стилизация интерфейса.
+- **FastAPI**: The server part of the application.
+- **SQLAlchemy**: ORM for more efficient creation of SQL queries.
+- **PostgreSQL**: Database for storing user and hotel information.
+- **Redis**: Data caching. 
+- **Pydantic**: Data validation library.
+- **HTML**: Web page structure.
+- **CSS**: Interface Styling.
+- **Celery**: Asynchronous execution of background tasks: image resize function, email sending service
 
-## To DO
+## TO DO
 
 - **Testing**
-- **Админка**
-- **NginX**: Балансировщик нагрузки (Возможно использование альтернитивного инструмента)
-- **Хранение статических файлов в NoSQL**
-- **Celery**: Ассинхронное выполнение фоновых задач.
-- **Docker**: Контейнеризация.
-- **Logging**: Ведение логов по работе системы.
-- **RabbitMQ**: Брокер сообщении.
-- **Grafana**: Визуализация логов.
-- **ElasticSearch**: Быстрый пойск данных
+- **Admin**
+- **NginX**: A load balancer (Alternate tool possible)
+- **Storing static files in NoSQL**
+- **Docker**: Containerization.
+- **Logging**: Keeping logs on the system.
+- **RabbitMQ**: Broker of the message.
+- **Grafana**: Visualization of logs.
+- **ElasticSearch**: Quick data retrieval
