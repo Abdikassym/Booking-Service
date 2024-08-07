@@ -12,11 +12,12 @@ Online hotel booking service that allows users to find and book rooms in a conve
 - **HTML**: Web page structure.
 - **CSS**: Interface Styling.
 - **Celery**: Asynchronous execution of background tasks: image resize function, email sending service
+- **Admin**
+
 
 ## TO DO
 
 - **Testing**
-- **Admin**
 - **NginX**: A load balancer (Alternate tool possible)
 - **Storing static files in NoSQL**
 - **Docker**: Containerization.
