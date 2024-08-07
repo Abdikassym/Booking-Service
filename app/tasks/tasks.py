@@ -6,6 +6,8 @@ from pydantic import EmailStr
 from app.tasks.email_templates import create_booking_confirmation_template
 from app.config import settings
 import smtplib
+import time 
+from fastapi import BackgroundTasks
 
 @celery.task
 def process_pic(
@@ -25,6 +27,7 @@ def send_booking_confirmation(
     booking: dict,
     email_to: EmailStr,
 ):
+    time.sleep(10)
     email_to_mock = settings.SMTP_USER
     msg_content = create_booking_confirmation_template(booking, email_to_mock)
     
